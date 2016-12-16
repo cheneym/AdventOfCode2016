@@ -1,4 +1,18 @@
-for (var i = 0; i < 100000000; i++) {
+// const fs = require('fs');
+
+// let input = fs.readFileSync('./day15.txt', 'utf8');
+// input = input.split('\n');
+// const numPositions = [];
+// const startPositions = [];
+// input.forEach((line) => {
+//   const data = line.split(' ');
+//   numPositions.push(+(data[3]));
+//   startPositions.push(+(data[data.length - 1].slice(0, -1)));
+// });
+// const results = [];
+// for (let j = 0; )
+
+for (let i = 0; i < 100000000; i++) {
   const y = (i + 1 + 1) % 17;
   const y2 = (i + 0 + 2) % 7;
   const y3 = (i + 2 + 3) % 19;
