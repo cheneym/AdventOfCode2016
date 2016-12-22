@@ -11,7 +11,6 @@ const allMaxSizes = [];
 const allAvailSizes = [];
 const gc = { x: 0, y: 0 };
 const sc = { x: 0, y: 0 };
-
 for (let i = 2; i < input.length; i++) {
   const data = input[i].split(' ');
   let j = 0;
@@ -38,13 +37,16 @@ for (let i = 2; i < input.length; i++) {
   allAvailSizes.push(availSize);
 }
 
+const pc = { x: colLen - 1, y: 0 };
 const boardStr = allUsedSizes.map(val => val > 400 ? '|' : '.').join('');
 let board = [];
 for (let i = 0; i < boardStr.length; i += rowLen) {
   board.push(boardStr.slice(i, i + rowLen).split(''));
 }
-board[sc.x][sc.y] = '_';
-board[colLen - 1][0] = 'S';
-board[gc.x][gc.y] = 'G'
+board[sc.x][sc.y] = '_';   // starting
+board[pc.x][pc.y] = 'P';   // pickup
+board[gc.x][gc.y] = 'G';   // goal
 board = board.map(line => line.join(''));
 console.log(board);
+const sol = sc.x + sc.y + pc.x + (colLen - 2) * 5;
+console.log(sol);
