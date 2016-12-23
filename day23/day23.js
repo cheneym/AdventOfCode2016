@@ -1,8 +1,6 @@
 const fs = require('fs');
 
 let input = fs.readFileSync('./day23.txt', 'utf8');
-input1 = input.split('\n').map(line => line.split(' '));
-input2 = input.split('\n').map(line => line.split(' '));
 
 const toggle = (index, data) => {
   const s = data[index][0];
@@ -16,7 +14,8 @@ const toggle = (index, data) => {
   data[index][0] = map[data[index][0]];
 }
 
-const compute = (start, instructions) => {
+const compute = (start, data) => {
+  const instructions = data.split('\n').map(line => line.split(' '));
   const registers = { a: start };
   for (let i = 0; i < instructions.length; i++) {
     ins = instructions[i];
@@ -41,9 +40,9 @@ const compute = (start, instructions) => {
 }
 
 // Part 1
-console.log(compute(7, input1));
+console.log(compute(7, input));
 
 // Part 2
 const factorial = n => n <= 1 ? n : n * factorial(n - 1);
-const offset = compute(7, input2) - factorial(7);
+const offset = compute(7, input) - factorial(7);
 console.log(factorial(12) + offset);
