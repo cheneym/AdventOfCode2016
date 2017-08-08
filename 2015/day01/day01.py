@@ -1,8 +1,8 @@
-## Part 1
-
 with open('input.txt') as f:
     lines = f.readlines()
 inputData = lines[0]
+
+## Part 1
 
 floor = 0
 for paren in inputData:
