@@ -7,15 +7,9 @@ inputData = lines
 #Part 1
 numNiceStrings = 0
 for line in inputData:
-    if re.search('ab|cd|pq|xy', line):
-        continue
-    numVowels = 0
-    for char in line:
-        if re.search('[aeiou]', char):
-            numVowels += 1
-            if numVowels == 3:
-                break
-    if re.search(r'(.)\1', line) and (numVowels >= 3):
+    if not re.search('ab|cd|pq|xy', line) \
+        and len(re.findall('[aeiou]', line)) >= 3 \
+        and re.search(r'(.)\1', line):
         numNiceStrings += 1
 
 print(numNiceStrings) #258
